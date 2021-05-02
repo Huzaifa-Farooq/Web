@@ -25,6 +25,5 @@ The user can:
 * **Mailbox:** When a user visits their Inbox, Sent mailbox, or Archive, it loads the appropriate mailbox by making a GET request to /emails/<mailbox> to request the emails for a particular mailbox
   * When a mailbox is visited, the application first query the API for the latest emails in that mailbox.
   * When a mailbox is visited, the name of the mailbox will appear at the top of the page.
-  * Each email is then be rendered in its own box (e.g. as a <div> with a border) that displays who the email is from, what the subject line is, and the timestamp of the email.
-  If the email is unread, it should appear with a white background. If the email has been read, it should appear with a gray background.
+  * Each email is then be rendered in its own box (e.g. as a <div> with a border) that displays who the email is from, what the subject line is, and the timestamp of the email. If the email is unread, it should appear with a white background. If the email has been read, it should appear with a gray background.
 * **
