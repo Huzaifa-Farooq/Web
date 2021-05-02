@@ -26,6 +26,6 @@ This project is developed in Django. It uses Django as back-end and javascript a
   * When a mailbox is visited, the application first query the API for the latest emails in that mailbox.
   * When a mailbox is visited, the name of the mailbox will appear at the top of the page.
   * Each email is then be rendered in its own box (e.g. as a div with a border) that displays who the email is from, what the subject line is, and the timestamp of the email.   If the email is unread, it should appear with a white background. If the email has been read, it should appear with a gray background.
-* ** View Email:** When a user clicks on an email, the user will be taken to a view where they see the content of that email by making a GET request to /emails/<email_id> to  request the email. 
- * The aation will show the email’s sender, recipients, subject, timestamp, and body.
- * Once the email has been clicked on, it will mark the email as read by sending a PUT request to /emails/<email_id> to update whether an email is read or not.
+* ** View Email:** When a user clicks on an email, the user will be taken to a view where they see the content of that email by making a GET request to /emails/<email_id> to    request the email. 
+  * The aation will show the email’s sender, recipients, subject, timestamp, and body.
+  * Once the email has been clicked on, it will mark the email as read by sending a PUT request to /emails/<email_id> to update whether an email is read or not.
