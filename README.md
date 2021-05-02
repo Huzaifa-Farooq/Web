@@ -46,5 +46,6 @@ This project is developed in Django. It uses Django as back-end and javascript a
   * The application will Pre-fill the composition form with the recipient field set to whoever sent the original email.
   * The application will also Pre-fill the subject line. If the original email had a subject line of foo, the new subject line should be Re: foo. (If the subject line already     begins with Re: , it will not add subject again)
   * The application will also Pre-fill the body of the email with a line like "On Jan 1 2020, 12:00 AM foo@example.com wrote:" followed by the original text of the email.
+
 <br>The Following video shows the project Demonstration: <br>
 https://studio.youtube.com/video/MhZLuIbXzvQ/edit
