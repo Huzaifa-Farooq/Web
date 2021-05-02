@@ -29,3 +29,13 @@ This project is developed in Django. It uses Django as back-end and javascript a
 * **View Email** When a user clicks on an email, the user will be taken to a view where they see the content of that email by making a GET request to /emails/<email_id> to    request the email. 
   * The aation will show the email’s sender, recipients, subject, timestamp, and body.
   * Once the email has been clicked on, it will mark the email as read by sending a PUT request to /emails/<email_id> to update whether an email is read or not.
+* **Archive and Unarchive:** It allows the users to archive and unarchive emails that they have received.
+  * When viewing an Inbox email, the user will be presented with a button that lets them archive the email. When viewing an Archive email, the user will be presented with a     button that lets them unarchive the email. This requirement does not apply to emails in the Sent mailbox.
+  * It will send a PUT request to /emails/<email_id> to mark an email as archived or unarchived.
+  * Once an email has been archived or unarchived, the application will load the user’s inbox.
+* **Reply:** The application allow the users to reply to an email.
+  * When viewing an email, the user will be presented with a “Reply” button that lets them reply to the email.
+  * When the user clicks the “Reply” button, they will be taken to the email composition form.
+  * The application will Pre-fill the composition form with the recipient field set to whoever sent the original email.
+  * The application will also Pre-fill the subject line. If the original email had a subject line of foo, the new subject line should be Re: foo. (If the subject line already     begins with Re: , it will not add subject again)
+  * The application will also Pre-fill the body of the email with a line like "On Jan 1 2020, 12:00 AM foo@example.com wrote:" followed by the original text of the email.
