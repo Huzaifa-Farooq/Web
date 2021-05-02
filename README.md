@@ -40,5 +40,5 @@ This project is developed in Django. It uses Django as back-end and javascript a
   * The application will also Pre-fill the subject line. If the original email had a subject line of foo, the new subject line should be Re: foo. (If the subject line already     begins with Re: , it will not add subject again)
   * The application will also Pre-fill the body of the email with a line like "On Jan 1 2020, 12:00 AM foo@example.com wrote:" followed by the original text of the email.
  
- [![alt text](https://i9.ytimg.com/vi/0VifMoLvbnU/mq2.jpg?sqp=CKSsuYQG&rs=AOn4CLDz7yKGKAJ52GsU44GtJlM0bhvkaQ.png)]
+ [![alt text](https://i9.ytimg.com/vi/0VifMoLvbnU/mq2.jpg?sqp=CKSsuYQG&rs=AOn4CLDz7yKGKAJ52GsU44GtJlM0bhvkaQ.jpg)]
 (http://wordpress.com/ "Title")
