@@ -1,0 +1,39 @@
+textarea {
+    min-height: 400px;
+}
+
+#timestamp {
+    float: right;
+}
+
+#email-unread {
+    border: 1px solid #E0E0E0;
+    background-color: white;
+    border-radius: 7px;
+    margin-bottom: 5px;
+    height: 35px;
+    font-size: 17px;
+    padding: 5px 5px 5px 5px;
+}
+
+#email-read {
+    background-color: #E0E0E0;
+    border: 1px solid #E0E0E0;
+    border-radius: 7px;
+    margin-bottom: 5px;
+    height: 35px;
+    font-size: 17px;
+    padding: 5px 5px 5px 5px;
+}
+
+#email-read:hover,
+#email-unread:hover {
+    border: 2px solid #E0E0E0;
+}
+
+#email-timestamp {
+    float: right;
+    color: #A0A0A0;
+    font-size: 14px;
+    cursor: pointer;
+}

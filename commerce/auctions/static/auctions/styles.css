@@ -1,0 +1,46 @@
+body {
+    padding: 10px;
+}
+
+.col {
+        float: left;
+       width: 33%;
+}
+
+#my-div {
+    float: left;
+    margin: 0 auto;
+    margin-right: 4.5%;
+    height: 250px
+}
+.watchlist
+{
+padding: 2px 4px;
+ margin-top: 5px;
+  margin-left:5px;
+  margin-bottom: 5px
+}
+
+.dot-open {
+  height: 18px;
+  width: 18px;
+  background-color: green;
+  border-radius: 50%;
+  display: inline-block;
+}
+.dot-closed {
+  height: 18px;
+  width: 18px;
+  background-color: red;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.column{
+float: left;
+
+}
+
+.wrapper{
+margin: 0 auto;
+}

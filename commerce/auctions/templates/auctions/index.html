@@ -1,0 +1,33 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h2>Active Listings</h2>
+<div>
+    {% for auction in auctions %}
+    <div style="border: 1px solid #E0E0E0; margin-bottom: 4%; height: 250px; width: 100%">
+
+        <div class="wrapper">
+            <div>
+            <img style="float: left; border: 1px solid #E0E0E0; max-height: 250px; height: auto; width: 20%; margin-left: 10%;" src="{{ auction.url }}" alt="No Image">
+        </div>
+        <div class="column" style="float: left; margin-left: 10%; margin-top: 20px;">
+            <b><a href="{% url 'listings' auction.id %}"> {{ auction.title }}</a></b><br>
+            {% for key, value in max_bids.items %}
+                {% if key == auction.id %}
+                    <b>Price</b>: ${{ value }}<br><br>
+                {% endif %}
+            {% endfor %}
+            <b>{{ auction.description }}</b><br>
+            <small style="color: #A0A0A0">Created: {{ auction.datetime }}</small>
+
+            <form action="{% url 'listings' auction.id %}">
+                <br>
+                <input class="btn btn-outline-success" type="submit" value="Bid Now.">
+            </form>
+
+        </div>
+        </div>
+</div>
+    {% endfor %}
+</div>
+{% endblock %}

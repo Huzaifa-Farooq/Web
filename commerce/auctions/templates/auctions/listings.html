@@ -1,0 +1,131 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h2>Listing: {{ listing.title }} </h2>
+<hr>
+<div>
+    {% if listing.is_active == True %}
+    <h4><span class="dot-open"></span> Auction Status: <span style="color: green">Active</span></h4>
+    {% else %}
+        <h4><span class="dot-closed"></span> Auction Status: <span style="color: red">Closed</span></h4>
+    {% endif %}
+</div>
+
+<div>
+
+    <div style="border: 1px solid #E0E0E0; margin-top: 20px;">
+
+        <img style="height:500px; max-width: 80%; box-shadow: 6px 6px 5px #E0E0E0;" src="{{ listing.url }}" alt="No Image Provided"><br>
+        <div style="margin-top: 10px; margin-bottom: 10px">{{ listing.description }}</div>
+
+        <div class="wrapper">
+
+            <div class="column">
+            {% if can_add_to_watchlist == True %}
+            <form method="post" action="{% url 'add_to_watchlist' listing.id %}">
+                {% csrf_token %}
+                <input class="btn btn-secondary btn-sm" type="submit" value="Add to Watchlist">
+            </form>
+            {% endif %}
+            </div>
+
+
+            <div class="column">
+            {% if can_add_to_watchlist == False %}
+            <form method="post" action="{% url 'remove_from_watchlist' listing.id %}">
+                {% csrf_token %}
+                <input class="btn btn-secondary btn-sm" type="submit" value="Remove from Watchlist">
+            </form>
+
+            {% endif %}
+            </div>
+
+            <div class="column">
+            {% if show_buttons == True %}
+
+            <form action="{% url 'delete_listing' listing.id %}" method="post">
+                {% csrf_token %}
+                <input class="btn btn-danger btn-sm" type="submit" value="Delete Listing">
+            </form>
+            </div>
+            {% if listing.is_active == True %}
+            <div class="column">
+            <form action="{% url 'close_auction' listing.id %}" method="post">
+                {% csrf_token %}
+                <input class="btn btn-warning btn-sm" type="submit" value="Close Auction">
+            </form>
+                {% endif %}
+            {% endif %}
+            </div>
+
+        </div>
+
+
+    </div>
+
+    <div>
+        <br>
+        <br>
+
+
+        {% if highest_bid is None %}
+            <h4>Current: Bid: ${{ listing.starting_bid }}</h4>
+        {% else %}
+        <h4>Current: Bid: ${{ highest_bid }}</h4>
+        {% endif %}
+           {{ no_of_bids  }} bid(s) so far. Your Bid is the current bid.
+        {% if bid_warning == True %}
+        <div class="alert alert-danger" role="alert">
+            Bid must be greater than <strong>${{ highest_bid }}</strong>
+        </div>
+        {% endif %}
+
+            <form action="{% url 'make_bid' listing.id %}" method="post">
+                {% csrf_token %}
+                    <input class="form-control" type="text" placeholder="Bid" name="bid"><br>
+                    <input class="btn btn-primary" type="submit" value="Place Bid"><br>
+            </form>
+    </div>
+
+    <div>
+        <br>
+        <h6>Details: </h6>
+        <ul>
+            <li>Listed by: <a href="{% url 'user_auctions' listing.created_by %}">{{ listing.created_by }}</a></li>
+             {%  if listing.category %}
+            <li>Category: <a href="{% url 'listing_categories' listing.category %}">{{ listing.category }}</a></li>
+            {% else %}
+            <li>Category: No category Listed</li>
+            {% endif %}
+            {% if listing.is_active == False %}
+            <li>Bid won by: {{ won_by.user }}</li>
+            <li>Winning Bid: ${{ won_by.current_bid }} </li>
+            {% endif %}
+        </ul>
+    </div>
+
+    <div>
+        <h6>Comments</h6>
+
+        {% for comment in comments %}
+        <ul style="list-style-type: none">
+
+            <li style="list-style-type: none; margin-left: 5px;">
+                <strong>{{ comment.user }}</strong>: {{ comment.comment }} <br>
+                <small style="color: #A0A0A0">{{ comment.datetime }}</small><br>
+            </li>
+        </ul>
+
+        {% endfor %}
+        <form action="{% url 'make_comment' listing.id %}" method="post">
+            {% csrf_token %}
+            <br>
+            <div style="form-control">
+                <textarea name="comment" type="text" rows="2" cols="120" placeholder=" Write a comment......"></textarea><br>
+                <input class="btn btn-primary btn-sm" type="submit" value="Comment">
+            </div>
+        </form>
+    </div>
+
+</div>
+{% endblock %}

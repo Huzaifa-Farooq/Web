@@ -1,0 +1,24 @@
+{% extends "auctions/layout.html" %}
+
+
+
+{% block body %}
+    <form method="post">
+        <div class="form-group">
+        {% csrf_token %}
+        <input class="form-control" type="text" name="title" placeholder="Title" required="required"><br>
+        <input class="form-control" type="text" name="description" placeholder="Description" required="required"><br>
+        <input class="form-control" type="text" name="starting_bid" placeholder="Starting Bid" required="required"><br>
+        <input class="form-control" type="url" name="url" placeholder="Image URL(Optional)"><br>
+        <select class="form-control" name="category">
+            <option value="none">Select Category</option>
+            {% for category in categories %}
+                <option>{{ category }}</option>
+            {% endfor %}
+        </select>
+            <br>
+            <input class="btn btn-primary" type="submit" value="Create Listing">
+        </div>
+    </form>
+
+{% endblock %}
