@@ -16,4 +16,4 @@ Via the Django admin interface, a site administrator will be able to view, add, 
 Users can also post comments in the listings.
 <br>
 The Following video shows the project Demonstration: <br>
-[![Everything Is AWESOME](https://img.youtube.com/vi/StTqXEQ2l-Y/0.jpg)](https://www.youtube.com/watch?v=StTqXEQ2l-Y "Everything Is AWESOME")
+[![Everything Is AWESOME](https://img.youtube.com/vi/StTqXEQ2l-Y/0.jpg)]
